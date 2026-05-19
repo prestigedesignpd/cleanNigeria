@@ -1,5 +1,8 @@
+const rawApiUrl = (import.meta.env.VITE_API_BASE_URL as string) || 'http://localhost:5000/api/v1'
+const apiBaseUrl = rawApiUrl.endsWith('/api/v1') ? rawApiUrl : `${rawApiUrl}/api/v1`
+
 export const env = {
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL as string,
+  apiBaseUrl,
   googleClientId: import.meta.env.VITE_GOOGLE_CLIENT_ID as string,
   paystackPublicKey: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY as string,
   socketUrl: import.meta.env.VITE_SOCKET_URL as string,

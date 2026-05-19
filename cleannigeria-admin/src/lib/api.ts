@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { useAdminAuthStore } from '@/store/adminAuthStore'
 
+const rawApiUrl = (import.meta.env.VITE_API_BASE_URL as string) || 'http://localhost:5000/api/v1'
+const apiBaseUrl = rawApiUrl.endsWith('/api/v1') ? rawApiUrl : `${rawApiUrl}/api/v1`
+
 export const env = {
-  apiBaseUrl: (import.meta.env.VITE_API_BASE_URL as string) || 'http://localhost:5000/api/v1',
+  apiBaseUrl,
 }
 
 const api = axios.create({
