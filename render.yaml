@@ -64,9 +64,9 @@ services:
   # 2. Client Dashboard Static Site
   - type: web
     name: cleannigeria-client
-    env: static
+    runtime: static
     rootDir: cleannigeria-client
-    buildCommand: npm install --legacy-peer-deps && npm run build
+    buildCommand: pnpm install && pnpm build
     staticPublishPath: dist
     headers:
       - path: /*
@@ -93,9 +93,9 @@ services:
   # 3. Admin Dashboard Static Site
   - type: web
     name: cleannigeria-admin
-    env: static
+    runtime: static
     rootDir: cleannigeria-admin
-    buildCommand: npm install --legacy-peer-deps && npm run build
+    buildCommand: pnpm install && pnpm build
     staticPublishPath: dist
     headers:
       - path: /*
