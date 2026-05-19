@@ -6,8 +6,8 @@ export const env = cleanEnv(process.env, {
   PORT: port({ default: 5000 }),
   APP_NAME: str({ default: 'CleanNigeria' }),
   APP_URL: url({ default: 'http://localhost:5000' }),
-  CLIENT_URL: url({ default: 'http://localhost:3000' }),
-  ADMIN_URL: url({ default: 'http://localhost:3001' }),
+  CLIENT_URL: str({ default: 'http://localhost:3000' }),
+  ADMIN_URL: str({ default: 'http://localhost:3001' }),
   ADMIN_EMAIL: str({ default: 'admin@cleannigeria.com' }),
   ADMIN_PASSWORD: str({ default: 'password' }),
 
@@ -29,9 +29,9 @@ export const env = cleanEnv(process.env, {
   JWT_ADMIN_REFRESH_EXPIRES: str({ default: '1d' }),
 
   // Paystack
-  PAYSTACK_PUBLIC_KEY: str(),
-  PAYSTACK_SECRET_KEY: str(),
-  PAYSTACK_WEBHOOK_SECRET: str(),
+  PAYSTACK_PUBLIC_KEY: str({ default: 'pk_test_mock' }),
+  PAYSTACK_SECRET_KEY: str({ default: 'sk_test_mock' }),
+  PAYSTACK_WEBHOOK_SECRET: str({ default: 'whsec_mock' }),
 
   // Cloudinary
   CLOUDINARY_CLOUD_NAME: str(),
