@@ -48,3 +48,28 @@ export const disconnectDatabase = async (): Promise<void> => {
   isConnected = false
   logger.info('MongoDB disconnected cleanly')
 }
+
+// Parse REDIS_URL for BullMQ connection options
+const getRedisConfig = () => {
+  const urlStr = process.env.REDIS_URL || 'redis://localhost:6379'
+  try {
+    const parsed = new URL(urlStr)
+    return {
+      host: parsed.hostname,
+      port: parseInt(parsed.port || '6379'),
+      password: parsed.password ? decodeURIComponent(parsed.password) : undefined,
+      username: parsed.username || undefined,
+      maxRetriesPerRequest: null, // Critical requirement for BullMQ
+      enableReadyCheck: false,
+    }
+  } catch (err) {
+    return {
+      host: '127.0.0.1',
+      port: 6379,
+      maxRetriesPerRequest: null,
+      enableReadyCheck: false,
+    }
+  }
+}
+
+export const redisConfig = getRedisConfig()

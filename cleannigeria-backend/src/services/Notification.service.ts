@@ -45,7 +45,7 @@ export class NotificationService {
         })
 
         // Emit via Socket.io
-        emitToUser(userId, SOCKET_EVENTS.NEW_NOTIFICATION, notif)
+        emitToUser(userId, SOCKET_EVENTS.NOTIFICATION_NEW, notif)
       }
 
       // 3b. Email
@@ -91,7 +91,7 @@ export class NotificationService {
     for (const user of users) {
       await this.send({
         userId: user._id.toString(),
-        type: NotificationType.SYSTEM_ALERT, // Generic type
+        type: NotificationType.SYSTEM_ANNOUNCEMENT, // Generic type
         data: { title: params.title, message: params.message, ...params.data },
       })
     }

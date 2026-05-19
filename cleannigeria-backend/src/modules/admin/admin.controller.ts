@@ -4,6 +4,8 @@ import { catchAsync } from '@utils/catchAsync'
 import { ApiResponse } from '@utils/ApiResponse'
 import { parsePagination, buildPaginationMeta } from '@utils/pagination'
 import { hashPassword } from '@utils/hashUtils'
+import { AccountStatus, CollectorStatus } from '@constants/status.constants'
+
 
 /**
  * High-level dashboard statistics
@@ -547,13 +549,13 @@ export const getVerificationQueue = catchAsync(async (_req: Request, res: Respon
  * Approve, Reject, or Request resubmission for an application
  */
 export const updateVerificationStatus = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params
+  const id = req.params.id as string
   const { status, notes } = req.body // status: 'Approved' | 'Rejected' | 'Needs Info'
 
-  const mapToAccountStatus = (s: string) => {
-    if (s === 'Approved') return 'ACTIVE'
-    if (s === 'Rejected') return 'SUSPENDED'
-    return 'PENDING'
+  const mapToAccountStatus = (s: string): AccountStatus => {
+    if (s === 'Approved') return AccountStatus.ACTIVE
+    if (s === 'Rejected') return AccountStatus.SUSPENDED
+    return AccountStatus.PENDING
   }
 
   const accountStatus = mapToAccountStatus(status)
@@ -583,7 +585,7 @@ export const updateVerificationStatus = catchAsync(async (req: Request, res: Res
     const collectors = await Collector.find()
     const target = collectors.find(c => `COL-${c._id.toString().substring(18)}` === id)
     if (!target) return ApiResponse.error(res, 'Collector registration not found', 404)
-    target.status = status === 'Approved' ? 'ACTIVE' : 'INACTIVE'
+    target.status = status === 'Approved' ? CollectorStatus.ACTIVE : CollectorStatus.SUSPENDED
     await target.save()
     return ApiResponse.success(res, target, `Collector registration ${status.toLowerCase()} successfully`)
   }

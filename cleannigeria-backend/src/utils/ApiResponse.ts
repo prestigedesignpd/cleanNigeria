@@ -7,6 +7,7 @@ interface PaginationMeta {
   pages: number
   hasNext: boolean
   hasPrev: boolean
+  unreadCount?: number
 }
 
 export class ApiResponse {
