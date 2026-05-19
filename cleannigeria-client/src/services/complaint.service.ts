@@ -1,5 +1,5 @@
 import api from './api'
-import type { Complaint, CreateComplaintPayload } from '@/types/complaint.types'
+import type { Complaint } from '@/types/complaint.types'
 
 export const complaintService = {
   async getComplaints(): Promise<Complaint[]> {

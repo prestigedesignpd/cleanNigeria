@@ -60,7 +60,7 @@ function StatCounter({ label, end, suffix, active }: { label: string; end: numbe
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as const } },
 }
 
 const stagger = {
@@ -236,7 +236,7 @@ export default function HomePage() {
 
         {/* Carousel Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-          {activeImages.map((_, i) => (
+          {activeImages.map((_: unknown, i: number) => (
             <button
               key={i}
               onClick={() => setCurrentImage(i)}

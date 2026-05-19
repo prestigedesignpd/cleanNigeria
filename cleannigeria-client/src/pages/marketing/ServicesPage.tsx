@@ -8,8 +8,6 @@ import {
   Truck, 
   CheckCircle2, 
   Clock, 
-  ShieldCheck, 
-  ArrowRight,
   Sparkles,
   Zap,
   Globe,
