@@ -5,7 +5,7 @@ services:
     env: node
     plan: free
     rootDir: cleannigeria-backend
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --legacy-peer-deps && npm run build
     startCommand: npm run start
     envVars:
       - key: PORT
@@ -66,7 +66,7 @@ services:
     name: cleannigeria-client
     env: static
     rootDir: cleannigeria-client
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --legacy-peer-deps && npm run build
     staticPublishPath: dist
     headers:
       - path: /*
@@ -95,7 +95,7 @@ services:
     name: cleannigeria-admin
     env: static
     rootDir: cleannigeria-admin
-    buildCommand: npm install && npm run build
+    buildCommand: npm install --legacy-peer-deps && npm run build
     staticPublishPath: dist
     headers:
       - path: /*
