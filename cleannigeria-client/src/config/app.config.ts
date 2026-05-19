@@ -1,0 +1,25 @@
+export const APP_CONFIG = {
+  name: 'CleanNigeria',
+  tagline: 'Clean Estates. Healthy Communities.',
+  description: 'Nigeria\'s most reliable waste collection subscription platform for estates and businesses.',
+  url: 'https://cleannigeria.com',
+  email: 'hello@cleannigeria.com',
+  phone: '+234 800 CLEAN NG',
+  whatsapp: '+2348001234567',
+  address: '12 Admiralty Way, Lekki Phase 1, Lagos, Nigeria',
+  officeHours: 'Mon – Fri: 8am – 6pm | Sat: 9am – 2pm',
+  social: {
+    twitter: 'https://twitter.com/cleannigeria',
+    instagram: 'https://instagram.com/cleannigeria',
+    facebook: 'https://facebook.com/cleannigeria',
+    linkedin: 'https://linkedin.com/company/cleannigeria',
+  },
+  stats: {
+    homesServed: 12000,
+    estatesCovered: 48,
+    onTimeRate: 99,
+    citiesActive: 6,
+    tonnesCollected: 8500,
+    happyCustomers: 3200,
+  },
+} as const

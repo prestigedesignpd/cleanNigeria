@@ -1,0 +1,63 @@
+import type { Pickup, Collector } from '@/types/schedule.types'
+
+export const mockCollector: Collector = {
+  id: 'col_001',
+  name: 'Taiwo Adeyemi',
+  phone: '08098765432',
+  avatar: 'https://api.dicebear.com/9.x/avataaars/svg?seed=taiwo',
+  vehiclePlate: 'LAG 432 KJA',
+  rating: 4.8,
+  totalCollections: 847,
+  zone: 'Lekki Phase 1',
+}
+
+export const mockPickups: Pickup[] = [
+  {
+    id: 'pkp_001',
+    userId: 'usr_001',
+    subscriptionId: 'sub_001',
+    collector: mockCollector,
+    scheduledDate: '2026-05-13T00:00:00Z',
+    timeWindow: '8:00 AM – 12:00 PM',
+    status: 'scheduled',
+    wasteType: 'general',
+    isExtra: false,
+  },
+  {
+    id: 'pkp_002',
+    userId: 'usr_001',
+    subscriptionId: 'sub_001',
+    collector: mockCollector,
+    scheduledDate: '2026-05-08T00:00:00Z',
+    timeWindow: '8:00 AM – 12:00 PM',
+    status: 'completed',
+    wasteType: 'general',
+    completedAt: '2026-05-08T10:45:00Z',
+    rating: 5,
+    photoUrl: '',
+    isExtra: false,
+  },
+  {
+    id: 'pkp_003',
+    userId: 'usr_001',
+    subscriptionId: 'sub_001',
+    collector: mockCollector,
+    scheduledDate: '2026-05-20T00:00:00Z',
+    timeWindow: '8:00 AM – 12:00 PM',
+    status: 'scheduled',
+    wasteType: 'general',
+    isExtra: false,
+  },
+  {
+    id: 'pkp_004',
+    userId: 'usr_001',
+    subscriptionId: 'sub_001',
+    scheduledDate: '2026-04-24T00:00:00Z',
+    timeWindow: '8:00 AM – 12:00 PM',
+    status: 'missed',
+    wasteType: 'general',
+    missedReason: 'Collector unavailable – rescheduled',
+    rescheduledDate: '2026-04-26T00:00:00Z',
+    isExtra: false,
+  },
+]

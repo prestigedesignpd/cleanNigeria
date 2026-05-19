@@ -1,0 +1,35 @@
+export const mockSubscriptions = [
+  {
+    id: "SUB-001",
+    subscriberName: "Victoria Garden City",
+    accountType: "Estate",
+    plan: "Premium Estate",
+    status: "Active",
+    billingCycle: "Monthly",
+    startDate: "2023-01-15T00:00:00Z",
+    nextRenewal: "2026-06-15T00:00:00Z",
+    monthlyValue: 1250000,
+  },
+  {
+    id: "SUB-002",
+    subscriberName: "Grace International School",
+    accountType: "Business",
+    plan: "Standard Business",
+    status: "Active",
+    billingCycle: "Yearly",
+    startDate: "2023-09-01T00:00:00Z",
+    nextRenewal: "2026-09-01T00:00:00Z",
+    monthlyValue: 50000,
+  },
+  {
+    id: "SUB-003",
+    subscriberName: "Adeoluwa Bamidele",
+    accountType: "Resident",
+    plan: "Basic",
+    status: "Expired",
+    billingCycle: "Monthly",
+    startDate: "2023-11-20T00:00:00Z",
+    nextRenewal: "2024-05-20T00:00:00Z",
+    monthlyValue: 15000,
+  }
+];

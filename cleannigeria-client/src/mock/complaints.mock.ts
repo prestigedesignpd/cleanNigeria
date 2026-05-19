@@ -1,0 +1,68 @@
+import type { Complaint } from '@/types/complaint.types'
+
+export const mockComplaints: Complaint[] = [
+  {
+    id: 'cmp_001',
+    userId: 'usr_001',
+    category: 'missed_pickup',
+    subject: 'Pickup was not completed on May 5th',
+    description: 'The collector arrived but only took waste from block A, completely skipping blocks B and C despite prior notification.',
+    photos: [],
+    relatedPickupDate: '2026-05-05',
+    status: 'in_progress',
+    messages: [
+      {
+        id: 'msg_001',
+        complaintId: 'cmp_001',
+        senderId: 'usr_001',
+        senderName: 'Chukwuemeka Obi',
+        senderRole: 'user',
+        message: 'The collector arrived but only took waste from block A, completely skipping blocks B and C despite prior notification.',
+        createdAt: '2026-05-06T09:00:00Z',
+      },
+      {
+        id: 'msg_002',
+        complaintId: 'cmp_001',
+        senderId: 'sup_001',
+        senderName: 'Support Team',
+        senderRole: 'support',
+        message: 'We apologise for the inconvenience. We have escalated this to the zone supervisor and a makeup pickup will be scheduled for May 8th.',
+        createdAt: '2026-05-06T11:30:00Z',
+      },
+    ],
+    createdAt: '2026-05-06T09:00:00Z',
+    updatedAt: '2026-05-06T11:30:00Z',
+  },
+  {
+    id: 'cmp_002',
+    userId: 'usr_001',
+    category: 'billing_issue',
+    subject: 'Charged twice in April',
+    description: 'I noticed two deductions of ₦12,000 in April. Please review my billing history.',
+    status: 'resolved',
+    messages: [
+      {
+        id: 'msg_003',
+        complaintId: 'cmp_002',
+        senderId: 'usr_001',
+        senderName: 'Chukwuemeka Obi',
+        senderRole: 'user',
+        message: 'I noticed two deductions of ₦12,000 in April. Please review my billing history.',
+        createdAt: '2026-04-15T14:00:00Z',
+      },
+      {
+        id: 'msg_004',
+        complaintId: 'cmp_002',
+        senderId: 'sup_001',
+        senderName: 'Support Team',
+        senderRole: 'support',
+        message: 'We reviewed and confirmed the duplicate charge. A refund of ₦12,000 has been processed and will reflect in 3-5 business days.',
+        createdAt: '2026-04-16T10:00:00Z',
+      },
+    ],
+    resolvedAt: '2026-04-16T10:00:00Z',
+    rating: 5,
+    createdAt: '2026-04-15T14:00:00Z',
+    updatedAt: '2026-04-16T10:00:00Z',
+  },
+]
